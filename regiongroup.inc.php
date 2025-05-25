@@ -5,26 +5,26 @@
 // $Id: regiongroup.inc.php,v 1.1 2025  Tomose
 // Based on region.inc.php,v 1.2 2005/01/22 15:50:00 xxxxx Exp $
 //
-// ‚¢‚ë‚¢‚ël‚¦‚½Œ‹‰ÊAª–{“I‚ÈŒ©’¼‚µ‚ğs‚¤B
-// EJavascript‚ğì‚é‚Ì‚ÅA1‰ñ‚µ‚©ŒÄ‚Ño‚¹‚È‚¢•”•ª‚ª‚ ‚é‚Ì‚Í‘Ã“–B
-// E‚¾‚ªuŠJ‚­vu•Â‚¶‚évƒ{ƒ^ƒ“‚ª1‚©Š‚Å‚µ‚©ì‚ê‚È‚¢‚Ì‚Í‚¨‚©‚µ‚¢B
+// ã„ã‚ã„ã‚è€ƒãˆãŸçµæœã€æ ¹æœ¬çš„ãªè¦‹ç›´ã—ã‚’è¡Œã†ã€‚
+// ãƒ»Javascriptã‚’ä½œã‚‹ã®ã§ã€1å›ã—ã‹å‘¼ã³å‡ºã›ãªã„éƒ¨åˆ†ãŒã‚ã‚‹ã®ã¯å¦¥å½“ã€‚
+// ãƒ»ã ãŒã€Œé–‹ãã€ã€Œé–‰ã˜ã‚‹ã€ãƒœã‚¿ãƒ³ãŒ1ã‹æ‰€ã§ã—ã‹ä½œã‚Œãªã„ã®ã¯ãŠã‹ã—ã„ã€‚
 //
 // usage
 // #regiongroup(mode)
-//	mode: ƒ{ƒ^ƒ“•\¦‚Ìd—l
-//		–³w’è or default: TableŒ`®‚Ìƒ^ƒbƒ`ƒGƒŠƒAi‰ß‹ŒİŠ·“®ìj
-//		image: ƒAƒCƒRƒ“•\¦Ec’u‚«ƒ‚[ƒh
-//				u[+]‚·‚×‚ÄŠJ‚­v‚Æu[-]‚·‚×‚Ä•Â‚¶‚év‚Æ‚¢‚¤wƒAƒCƒRƒ“+•¶šx•\¦
-//				‚±‚ê‚ç‚Ì‚Q‚Â‚ªc‚É•À‚ñ‚Å‚¢‚éŒ`
-//		image_vertical : image w’è‚Æ“¯‚¶“®ì
-//		image_horizontal : wƒAƒCƒRƒ“+•¶šx•\¦B
-//				uŠJ‚­v‚Æu•Â‚¶‚év‚ğ‰¡‚É•À‚×‚Ä‚¢‚é
+//	mode: ãƒœã‚¿ãƒ³è¡¨ç¤ºã®ä»•æ§˜
+//		ç„¡æŒ‡å®š or default: Tableå½¢å¼ã®ã‚¿ãƒƒãƒã‚¨ãƒªã‚¢ï¼ˆéå»äº’æ›å‹•ä½œï¼‰
+//		image: ã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºãƒ»ç¸¦ç½®ããƒ¢ãƒ¼ãƒ‰
+//				ã€Œ[+]ã™ã¹ã¦é–‹ãã€ã¨ã€Œ[-]ã™ã¹ã¦é–‰ã˜ã‚‹ã€ã¨ã„ã†ã€ã‚¢ã‚¤ã‚³ãƒ³+æ–‡å­—ã€è¡¨ç¤º
+//				ã“ã‚Œã‚‰ã®ï¼’ã¤ãŒç¸¦ã«ä¸¦ã‚“ã§ã„ã‚‹å½¢
+//		image_vertical : image æŒ‡å®šã¨åŒã˜å‹•ä½œ
+//		image_horizontal : ã€ã‚¢ã‚¤ã‚³ãƒ³+æ–‡å­—ã€è¡¨ç¤ºã€‚
+//				ã€Œé–‹ãã€ã¨ã€Œé–‰ã˜ã‚‹ã€ã‚’æ¨ªã«ä¸¦ã¹ã¦ã„ã‚‹
 //
-// –{ƒvƒ‰ƒOƒCƒ“‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éê‡Apukiwiki/imageƒfƒBƒŒƒNƒgƒŠ‚ÉŸ‚Ì‚Q‚Â‚Ì
-// ‰æ‘œƒtƒ@ƒCƒ‹‚ğ’u‚¢‚Ä‚­‚¾‚³‚¢i‚±‚¿‚ç‚Ì‰æ‘œ‚Í—F£‚©‚ç‚Í”z•z‚µ‚Ä‚¢‚Ü‚¹‚ñj
-//		ExpandAll.png :	u‚·‚×‚ÄŠJ‚­vƒAƒCƒRƒ“
-//		CollapseAll : 	u‚·‚×‚Ä•Â‚¶‚évƒAƒCƒRƒ“
-// ‚±‚¿‚ç‚Ì‰æ‘œ‚É‚Â‚¢‚Ä‚ÍA—F£‚Í”z•z‚µ‚Ä‚¢‚Ü‚¹‚ñBŠe©‚Å€”õ‚­‚¾‚³‚¢B
+// æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹å ´åˆã€pukiwiki/imageãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«æ¬¡ã®ï¼’ã¤ã®
+// ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç½®ã„ã¦ãã ã•ã„ï¼ˆã“ã¡ã‚‰ã®ç”»åƒã¯å‹ç€¬ã‹ã‚‰ã¯é…å¸ƒã—ã¦ã„ã¾ã›ã‚“ï¼‰
+//		ExpandAll.png :	ã€Œã™ã¹ã¦é–‹ãã€ã‚¢ã‚¤ã‚³ãƒ³
+//		CollapseAll : 	ã€Œã™ã¹ã¦é–‰ã˜ã‚‹ã€ã‚¢ã‚¤ã‚³ãƒ³
+// ã“ã¡ã‚‰ã®ç”»åƒã«ã¤ã„ã¦ã¯ã€å‹ç€¬ã¯é…å¸ƒã—ã¦ã„ã¾ã›ã‚“ã€‚å„è‡ªã§æº–å‚™ãã ã•ã„ã€‚
 
 
 function plugin_regiongroup_convert()
@@ -32,31 +32,29 @@ function plugin_regiongroup_convert()
 	static $builder = 0;
 	if( $builder==0 ) $builder = new RegiongroupPluginHTMLBuilder();
 	
-	//¡‚Ü‚Å‚Í‰æ–Ê•\¦‚ÍutableŒ`®‚Å‚ÌƒNƒŠƒbƒNƒGƒŠƒAŒÅ’èv‚¾‚Á‚½‚ªA
-	//‘¼‚Ìè’i‚Å‚à‚æ‚¢Œ`‚É‚·‚éB
-	// ‚»‚ÌğŒ‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Äó‚¯æ‚ê‚é‚æ‚¤‚É‚·‚éB
-	// ŒİŠ·«‚Ì‚½‚ßAÅ‰‚Ìƒpƒ‰ƒ[ƒ^‚Í‹ó”’‚ğ‹–—eB
+	//ä»Šã¾ã§ã¯ç”»é¢è¡¨ç¤ºã¯ã€Œtableå½¢å¼ã§ã®ã‚¯ãƒªãƒƒã‚¯ã‚¨ãƒªã‚¢å›ºå®šã€ã ã£ãŸãŒã€
+	//ä»–ã®æ‰‹æ®µã§ã‚‚ã‚ˆã„å½¢ã«ã™ã‚‹ã€‚
+	// ãã®æ¡ä»¶ã‚’ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦å—ã‘å–ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+	// äº’æ›æ€§ã®ãŸã‚ã€æœ€åˆã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ç©ºç™½ã‚’è¨±å®¹ã€‚
 	$args = func_get_args();
 	$prm= array();
 
 	$prm['mode']=array_shift($args);
 	if($prm['mode']=='') $prm['mode']='default';
 
-	foreach( $args as $key => $arg){
-		tomoseDBG("key:".$key);			
-		tomoseDBG("arg:".$arg);			
+	foreach( $args as $key => $arg){		
 		if($key==0){
-			//‘æˆêƒpƒ‰ƒ[ƒ^B‹ó—“‚È‚ç]—ˆ’Ê‚èA‚»‚êˆÈŠO‚È‚ç•Ê“®ìB
+			//ç¬¬ä¸€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚ç©ºæ¬„ãªã‚‰å¾“æ¥é€šã‚Šã€ãã‚Œä»¥å¤–ãªã‚‰åˆ¥å‹•ä½œã€‚
 			$prm['mode']=$arg;
 			if($arg=='') $prm['mode']='default';
 			
 		}else	if(strpos($arg,'=')){
-			// prmname = xxx Œ`®‚Ìˆø”B
+			// prmname = xxx å½¢å¼ã®å¼•æ•°ã€‚
 			$argss= explode('=',$arg);
 			$argss = array_map('trim', $argss);
 			switch ($argss[0])	{
 				case 'prmname':
-					// $argss[1]‚Ì’l‚Åˆ—
+					// $argss[1]ã®å€¤ã§å‡¦ç†
 					break;
 				default:
 					break;
@@ -64,7 +62,7 @@ function plugin_regiongroup_convert()
 			}
 		}
 		else{
-			//prmname–³B$key‚ÌˆÊ’u‚Åˆ—‚·‚é‚µ‚©‚È‚¢B
+			//prmnameç„¡ã€‚$keyã®ä½ç½®ã§å‡¦ç†ã™ã‚‹ã—ã‹ãªã„ã€‚
 			switch ($key)
 			{
 				default:
@@ -76,12 +74,12 @@ function plugin_regiongroup_convert()
 		
 	}
 
-	// ‚g‚s‚l‚k•Ô‹p
+	// ï¼¨ï¼´ï¼­ï¼¬è¿”å´
 	return $builder->build($prm['mode']);
 }
 
 
-// ƒNƒ‰ƒX‚Ìì‚è•ûËhttp://php.s3.to/man/language.oop.object-comparison-php4.html
+// ã‚¯ãƒ©ã‚¹ã®ä½œã‚Šæ–¹â‡’http://php.s3.to/man/language.oop.object-comparison-php4.html
 class RegiongroupPluginHTMLBuilder
 {
 	var $description;
@@ -90,8 +88,8 @@ class RegiongroupPluginHTMLBuilder
 	var $id_buttonopen,$id_buttonclose;
 
 
-	//« buildƒƒ\ƒbƒh‚ğŒÄ‚ñ‚¾‰ñ”‚ğƒJƒEƒ“ƒg‚·‚éB
-	// ‚P‚Â‚ÌHTML‚É‚Í Javascript‚ğ 1‰ñ‚¾‚¯‚µ‚©o—Í‚³‚¹‚È‚¢‚½‚ß‚Ìˆ—B
+	//â†“ buildãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã‚“ã å›æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ã€‚
+	// ï¼‘ã¤ã®HTMLã«ã¯ Javascriptã‚’ 1å›ã ã‘ã—ã‹å‡ºåŠ›ã•ã›ãªã„ãŸã‚ã®å‡¦ç†ã€‚
 	var $callcount;
 
 	function RegiongroupPluginHTMLBuilder() {
@@ -108,14 +106,14 @@ class RegiongroupPluginHTMLBuilder
 	function setClosed(){ $this->isopened = false; }
 	function setOpened(){ $this->isopened = true; }
 
-	// convert_html()‚ğg‚Á‚ÄAŠT—v‚Ì•”•ª‚Éƒuƒ‰ƒ“ƒPƒbƒgƒl[ƒ€‚ğg‚¦‚é‚æ‚¤‚É‰ü—ÇB
+	// convert_html()ã‚’ä½¿ã£ã¦ã€æ¦‚è¦ã®éƒ¨åˆ†ã«ãƒ–ãƒ©ãƒ³ã‚±ãƒƒãƒˆãƒãƒ¼ãƒ ã‚’ä½¿ãˆã‚‹ã‚ˆã†ã«æ”¹è‰¯ã€‚
 	function setDescription($description){ $this->description = "aaa"; }
 
 	function build($mode){
-		//ŒÄ‚Ño‚³‚ê‚½‰ñ”‚ğƒJƒEƒ“ƒgB
+		//å‘¼ã³å‡ºã•ã‚ŒãŸå›æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã€‚
 		$this->callcount++;
 		$html = array();
-		// ˆÈ~A‚g‚s‚l‚kì¬ˆ—
+		// ä»¥é™ã€ï¼¨ï¼´ï¼­ï¼¬ä½œæˆå‡¦ç†
 
 		array_push( $html, $this->buildButtonHtml($mode) );
 
@@ -123,10 +121,10 @@ class RegiongroupPluginHTMLBuilder
 		
 	}
 
-	// ¡ ƒ{ƒ^ƒ“‚Ì•”•ªB
+	// â–  ãƒœã‚¿ãƒ³ã®éƒ¨åˆ†ã€‚
 	function buildButtonHtml($mode){
 		switch ($mode)	{
-			// $argss[1]‚Ì’l‚Åˆ—
+			// $argss[1]ã®å€¤ã§å‡¦ç†
 			case 'image':
 			case 'image_vertical':
 				$button = $this->buildImagebutton(0);
@@ -143,7 +141,7 @@ class RegiongroupPluginHTMLBuilder
 
 		}
 
-		//‰‰ñŒÄ‚Ño‚µ‚Ì‚İAJavascript‚ğ’Ç‰Á‚Å“f‚«o‚·B
+		//åˆå›å‘¼ã³å‡ºã—æ™‚ã®ã¿ã€Javascriptã‚’è¿½åŠ ã§åãå‡ºã™ã€‚
 		if( $this->callcount ==1) {
 			$button .= $this->buildJavascript();
 		}
@@ -172,8 +170,8 @@ class RegiongroupPluginHTMLBuilder
 		$button = 
 <<<EOD
 <span style='cursor:pointer;' onclick='regiongroupe_allopen();'>
-<img id='rgngroup_btn_open' src='$imgopen.png' title='‚·‚×‚ÄŠJ‚­' />
-<span id='rgn_opener_opentxt'>‚·‚×‚ÄŠJ‚­</span>
+<img id='rgngroup_btn_open' src='$imgopen.png' title='ã™ã¹ã¦é–‹ã' />
+<span id='rgn_opener_opentxt'>ã™ã¹ã¦é–‹ã</span>
 </span>
 EOD;
 		return $button;
@@ -185,7 +183,7 @@ EOD;
 		$button = 
 <<<EOD
 <span style="cursor:pointer;" onclick="regiongroupe_allclose();">
-<img id="rgngroup_btn_close" src="$imgclose.png" title="‚·‚×‚Ä•Â‚¶‚é"/><span id="rgn_opener_closetxt">‚·‚×‚Ä•Â‚¶‚é</span>
+<img id="rgngroup_btn_close" src="$imgclose.png" title="ã™ã¹ã¦é–‰ã˜ã‚‹"/><span id="rgn_opener_closetxt">ã™ã¹ã¦é–‰ã˜ã‚‹</span>
 </span>
 EOD;
 		return $button;
@@ -201,7 +199,7 @@ EOD;
 <!--
 -->
 	<span id='rgngroup_btn_open' style="cursor:pointer;border:gray 1px solid;"
-	onclick="regiongroupe_allopen();">‘S‚ÄŠJ‚­</span>
+	onclick="regiongroupe_allopen();">å…¨ã¦é–‹ã</span>
 <!--
 -->
 </td></tr>
@@ -210,7 +208,7 @@ EOD;
 <!--
 -->
 	<span id='rgngroup_btn_close' style="cursor:pointer;border:gray 1px solid;"
-	onclick="regiongroupe_allclose();">‘S‚Ä•Â‚¶‚é</span>
+	onclick="regiongroupe_allclose();">å…¨ã¦é–‰ã˜ã‚‹</span>
 <!--
 -->
 </td>
@@ -233,14 +231,14 @@ function regiongroupe_showtext(mode){
 	if(mode){
 		elms = document.querySelectorAll("#rgn_opener_opentxt");
 		for(var i = 0; i < elms.length; i++) 
-			elms[i].innerText="‚·‚×‚ÄŠJ‚­";
+			elms[i].innerText="ã™ã¹ã¦é–‹ã";
 		elms = document.querySelectorAll("#rgn_opener_closetxt");
 		for(var i = 0; i < elms.length; i++) 
-			elms[i].innerText="‚·‚×‚Ä•Â‚¶‚é";
+			elms[i].innerText="ã™ã¹ã¦é–‰ã˜ã‚‹";
 
 /*
-		document.getElementById('rgn_opener_opentxt').innerText="‚·‚×‚ÄŠJ‚­";
-		document.getElementById('rgn_opener_closetxt').innerText="‚·‚×‚Ä•Â‚¶‚é";
+		document.getElementById('rgn_opener_opentxt').innerText="ã™ã¹ã¦é–‹ã";
+		document.getElementById('rgn_opener_closetxt').innerText="ã™ã¹ã¦é–‰ã˜ã‚‹";
 */
 	}else{
 		elms = document.querySelectorAll("#rgn_opener_opentxt");
